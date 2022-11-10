@@ -1,4 +1,4 @@
-/movies/
+1. /movies/ --> GET
 
 [
 	{
@@ -6,12 +6,14 @@
 		description: str
 		release_date: date/str
 		num_of_actors: int
+		(num_of_votes: int)
 	},
 	{
 		title: str
 		description: str
 		release_date: date/str
 		num_of_actors: int
+		(num_of_votes: int)
 	},
 
 	...
@@ -21,7 +23,54 @@
 		description: str
 		release_date: date/str
 		num_of_actors: int
+		(num_of_votes: int)
 	}
 
 ]
+
+2. /actors/  --> GET
+
+[
+	{
+		name: str
+		dob: date/str
+		num_of_movies: int
+	},
+	{
+		name: str
+		dob: date/str
+		num_of_movies: int
+	},
+
+	...
+	
+	{
+		name: str
+		dob: date/str
+		num_of_movies: int
+	}
+]
+
+3. 
+	GET
+
+   /movies/?ordering=title
+   /movies/?ordering=release_date
+   /movies/?ordering=title,release_date
+
+   https://www.django-rest-framework.org/api-guide/filtering/#orderingfilter
+
+4. POST
+   
+   /movies/<id>/vote or /movies/vote/<id> or some other endpoint
+
+   {
+   		vote: "upvote/downvote"
+   }
+
+   or
+   {
+   		vote : 1 / -1
+   }
+
 
