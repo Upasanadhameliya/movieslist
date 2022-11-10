@@ -1,0 +1,25 @@
+1.
+
+Movie
+title: str
+description : str
+release_date : date
+votes : int
+
+@property : num_of_actors
+
+
+2.
+
+Cast
+movie : fk(movie)
+actor : fk(actor)
+
+
+3.
+
+Actor
+name : str
+dob : date
+
+@property : num_of_movies
