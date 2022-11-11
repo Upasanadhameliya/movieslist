@@ -7,10 +7,19 @@ class Movie(models.Model):
 	release_date = models.DateField(blank=True,null=True)
 	votes = models.IntegerField(default=0)
 
+	def __str__(self):
+		return self.title
+
 class Actor(models.Model):
 	name = models.CharField(max_length=255)
 	dob = models.DateField(null=True,blank=True)
 
+	def __str__(self):
+		return self.name
+
 class Cast(models.Model):
 	actor = models.ForeignKey('Actor', on_delete=models.CASCADE)
 	movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
+
+	def __str__(self):
+		return self.actor.name + " - " + self.movie.title
