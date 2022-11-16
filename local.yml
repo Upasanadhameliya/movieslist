@@ -22,6 +22,8 @@ services:
     ports:
       - "8000:8000"
     command: /start
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
 
   postgres:
     build:

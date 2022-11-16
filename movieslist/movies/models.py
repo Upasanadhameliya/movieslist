@@ -7,12 +7,20 @@ class Movie(models.Model):
 	release_date = models.DateField(blank=True,null=True)
 	votes = models.IntegerField(default=0)
 
+	@property
+	def num_of_actors(self):
+		return self.cast_set.count()
+
 	def __str__(self):
 		return self.title
 
 class Actor(models.Model):
 	name = models.CharField(max_length=255)
 	dob = models.DateField(null=True,blank=True)
+
+	@property
+	def num_of_movies(self):
+		return self.cast_set.count()
 
 	def __str__(self):
 		return self.name
